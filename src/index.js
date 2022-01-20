@@ -50,12 +50,14 @@ document.addEventListener("DOMContentLoaded", () => {
       img: "src/images/pizza.png",
     },
   ];
-  console.log(cardArray);
-  cardArray.sort(() => 0.5 - Math.random());
+   cardArray.sort(() => 0.5 - Math.random());
   const grid = document.querySelector(".grid");
   let cardsChosen = [];
   let cardsChosenIds = [];
   let cardsWon = [];
+  
+  //  createBoard function
+  
   function createBoard() {
     for (let i = 0; i < cardArray.length; i++) {
       const card = document.createElement("img");
@@ -65,6 +67,9 @@ document.addEventListener("DOMContentLoaded", () => {
       grid.appendChild(card);
     }
   }
+  
+  // flipCard function
+  
   function flipCard() {
     let cardId = this.getAttribute("data-id");
     cardsChosen.push(cardArray[cardId].name);
@@ -73,9 +78,11 @@ document.addEventListener("DOMContentLoaded", () => {
     if (cardsChosen.length === 2) {
       setTimeout(checkForMatch, 50);
     }
-    console.log(cardsChosenIds);
-  }
-
+   }
+  
+// checkForMatch function
+  
+  
   function checkForMatch() {
     const cards = document.querySelectorAll("img");
     const resultDisplay = document.querySelector("#result");
@@ -99,12 +106,15 @@ document.addEventListener("DOMContentLoaded", () => {
     }
     cardsChosen = [];
     cardsChosenIds = [];
+    
+    // This is the score and text we expect from Our game at the end.
+    
+    
     resultDisplay.textContent = cardsWon.length;
     if (cardsWon.length === 6) {
       resultDisplay.textContent = "Congratuation, you WON! ";
     }
-    console.log(cardsChosen);
-    console.log(cardsWon);
+     
   }
   createBoard();
 });
