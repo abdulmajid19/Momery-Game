@@ -1,4 +1,8 @@
 document.addEventListener("DOMContentLoaded", () => {
+  
+  // Cards Array with objects
+  
+  
   const cardArray = [
     {
       name: "fries",
@@ -56,7 +60,7 @@ document.addEventListener("DOMContentLoaded", () => {
   let cardsChosenIds = [];
   let cardsWon = [];
   
-  //  createBoard function
+  // We create our board in createBoard function
   
   function createBoard() {
     for (let i = 0; i < cardArray.length; i++) {
@@ -68,7 +72,7 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   }
   
-  // flipCard function
+  //flip our card flipCard function
   
   function flipCard() {
     let cardId = this.getAttribute("data-id");
@@ -80,7 +84,7 @@ document.addEventListener("DOMContentLoaded", () => {
     }
    }
   
-// checkForMatch function
+// This checks for matching checkForMatch function
   
   
   function checkForMatch() {
